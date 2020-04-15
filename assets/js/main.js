@@ -4,8 +4,8 @@ console.log('File js pronto');
 // Da li parte un timer di 30 secondi.
 // // Dopo 30 secondi l’ utente deve inserire, un prompt alla volta,
 // i numeri che ha visto precedentemente.
-// // Dopo che sono stati inseriti i 5 numeri, il software dice quanti
-//  e quali dei numeri da indovinare sono stati individuati
+// // Dopo che sono stati inseriti i 5 numeri, il software dice
+// quanti e quali dei numeri da indovinare sono stati individuati
 // // Assicuratevi di saper fare correttamente l’ esercizio con output
 //  base (alert() , prompt() , console.log() )
 
@@ -18,14 +18,14 @@ var numeriRandomPc = Math.floor(Math.random()*50) +1;
 numeriUnivociPc.push(numeriRandomPc);
 };
 
-alert('I 5 numeri random sono:' + ' ' +  numeriUnivociPc)
+alert('Prova a ricordare questi numeri:' + ' ' +  numeriUnivociPc)
 
 // ref
-var secondi = 3000;
+var msecondi = 300;
+var msecondiI = 400;
+var numeriTrovati = 0;
 
-// var inserisciNumeri = parseInt(prompt('Inserisci numero'));
-
-setTimeout(loopNumeri, secondi);
+setTimeout(loopNumeri, msecondi);
 
 function loopNumeri(){
   for(i=0; i < 5; i++) {
@@ -35,4 +35,15 @@ function loopNumeri(){
   }
 };
 
-console.log('Numeri pc: ' + numeriUnivociPc);
+setTimeout(paragoni, msecondi);
+
+function paragoni(){
+  for(var i=0; i < numeriUnivociUser.length; i++){
+    if(numeriUnivociPc.includes(numeriUnivociUser[i])){
+      numeriTrovati++;
+    }
+  }
+  console.log('Num trovati: ' , numeriTrovati);
+};
+
+console.log('Numeri da indovinare: ' + numeriUnivociPc);
