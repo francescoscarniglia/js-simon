@@ -25,7 +25,7 @@ var msecondi = 300;
 var msecondiI = 400;
 var numeriTrovati = 0;
 
-setTimeout(loopNumeri, msecondi);
+loopNumeri();
 
 function loopNumeri(){
   for(i=0; i < 5; i++) {
@@ -35,8 +35,9 @@ function loopNumeri(){
   }
 };
 
-setTimeout(paragoni, msecondi);
+clearInterval(numeriUnivociUser);
 
+setTimeout(paragoni, msecondi);
 function paragoni(){
   for(var i=0; i < numeriUnivociUser.length; i++){
     if(numeriUnivociPc.includes(numeriUnivociUser[i])){
@@ -45,5 +46,7 @@ function paragoni(){
   }
   console.log('Num trovati: ' , numeriTrovati);
 };
+
+clearInterval(numeriTrovati);
 
 console.log('Numeri da indovinare: ' + numeriUnivociPc);
