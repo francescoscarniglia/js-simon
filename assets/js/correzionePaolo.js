@@ -23,7 +23,25 @@ alert(randomNumbers);
 //***************** GAME LOGIC *****************/
 setTimeout(function(){
 
-  var userNumber = [];
+  var userNumbers = [];
+
+  while(userNumbers.length < 5) {
+    //mi serve inserire il numero attuale per poter comparare uno ad uno
+    var newUserNumber = parseInt(prompt('Inserisci il ' + (userNumbers.length + 1) + ' ° numero'));
+
+    // se il valore che prendo non è un numero ripeti
+    while(isNaN(userNumbers)) {
+      var newUserNumber = parseInt(prompt('Inserisci il ' + (userNumbers.length + 1) + ' ° numero'));
+    }
+
+    // verifico unicità del numero che viene inserito
+    if(! userNumbers.includes(newUserNumber)){
+      userNumbers.push(newUserNumber);
+    } else {
+      alert('Numero già inserito!')
+    }
+
+  }
 
 
 }, waitTime);
